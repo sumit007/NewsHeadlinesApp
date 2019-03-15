@@ -3,6 +3,7 @@ package com.grab.assignmentgrab.base;
 import android.app.Application;
 
 import com.grab.assignmentgrab.di.component.ApplicationComponent;
+import com.grab.assignmentgrab.di.component.DaggerApplicationComponent;
 
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;
@@ -19,7 +20,6 @@ public class BaseApplication extends Application {
         super.onCreate();
     }
 
-    @Override
     protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
         ApplicationComponent component = DaggerApplicationComponent.builder().application(this).build();
         component.inject(this);

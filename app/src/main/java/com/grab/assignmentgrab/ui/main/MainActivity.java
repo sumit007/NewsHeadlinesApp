@@ -1,4 +1,4 @@
-package com.grab.assignmentgrab.ui;
+package com.grab.assignmentgrab.ui.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

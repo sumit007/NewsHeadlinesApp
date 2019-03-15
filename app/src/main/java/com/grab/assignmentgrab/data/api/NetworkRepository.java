@@ -25,8 +25,4 @@ public class NetworkRepository {
     public Single<TopHeadLines> getTopHeadLines() {
         return headlinesApi.getHeadLines("US", "Business");
     }
-
-    public Single<TopHeadLines> getTopHeadLines(String owner, String name) {
-        return headlinesApi.getHeadLines(owner, name);
-    }
 }

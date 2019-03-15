@@ -1,19 +1,19 @@
 package com.grab.assignmentgrab.di.module;
 
+import com.grab.assignmentgrab.data.api.HeadlinesApi;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import me.ibrahimsn.viewmodel.data.rest.RepoService;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-@Singleton
 @Module(includes = ViewModelModule.class)
 public class ApplicationModule {
 
-    private static final String BASE_URL = "https://api.github.com/";
+    private static final String BASE_URL = "https://newsapi.org/";
 
     @Singleton
     @Provides
@@ -26,7 +26,7 @@ public class ApplicationModule {
 
     @Singleton
     @Provides
-    static RepoService provideRetrofitService(Retrofit retrofit) {
-        return retrofit.create(RepoService.class);
+    static HeadlinesApi provideRetrofitService(Retrofit retrofit) {
+        return retrofit.create(HeadlinesApi.class);
     }
 }
