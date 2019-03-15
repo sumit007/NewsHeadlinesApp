@@ -15,8 +15,7 @@ public interface HeadlinesApi {
 
     String API_KEY = "0688e3c0cada43d69affb78a9339271e";
 
-    @GET("v2/top-headlines?apiKey=" + API_KEY)
-    Single<TopHeadLines> getHeadLines(@Query("country") String country, @Query("category")
-            String category);
+    @GET("top-headlines?country=us&apiKey=0688e3c0cada43d69affb78a9339271e")
+    Single<TopHeadLines> getHeadLines();
 
 }

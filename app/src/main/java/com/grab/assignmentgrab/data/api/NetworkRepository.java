@@ -21,6 +21,6 @@ public class NetworkRepository {
     }
 
     public Single<TopHeadLines> getTopHeadLines() {
-        return headlinesApi.getHeadLines("US", "Business");
+        return headlinesApi.getHeadLines();
     }
 }

@@ -6,10 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.grab.assignmentgrab.R;
 import com.grab.assignmentgrab.data.model.TopHeadLines;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +39,7 @@ public class TopHeadlineListAdapter extends RecyclerView.Adapter<TopHeadlineList
     @NonNull
     @Override
     public HeadLineViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_repo_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.head_line_item, parent, false);
         return new HeadLineViewHolder(view, articleSelectedListener);
     }
 
@@ -53,14 +55,18 @@ public class TopHeadlineListAdapter extends RecyclerView.Adapter<TopHeadlineList
 
     static final class HeadLineViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.tv_repo_name)
-        TextView repoNameTextView;
-        @BindView(R.id.tv_repo_description)
-        TextView repoDescriptionTextView;
-        @BindView(R.id.tv_forks)
-        TextView forksTextView;
-        @BindView(R.id.tv_stars)
-        TextView starsTextView;
+        @BindView(R.id.headline_author_by_tv)
+        TextView authorNameTv;
+        @BindView(R.id.headline_description_tv)
+        TextView headLineDescriptionTextView;
+        @BindView(R.id.headline_content_tv)
+        TextView contentTextView;
+        @BindView(R.id.headline_title_tv)
+        TextView headLineTitleTextView;
+        @BindView(R.id.headline_published_at_tv)
+        TextView headLinePublishedAtTextView;
+        @BindView(R.id.headline_iv)
+        ImageView headLineImageView;
 
         private TopHeadLines.Article repo;
 
@@ -76,10 +82,12 @@ public class TopHeadlineListAdapter extends RecyclerView.Adapter<TopHeadlineList
 
         void bind(TopHeadLines.Article repo) {
             this.repo = repo;
-            repoNameTextView.setText(repo.getTitle());
-            repoDescriptionTextView.setText(repo.getDescription());
-            forksTextView.setText(String.valueOf(repo.getSource()));
-            starsTextView.setText(String.valueOf(repo.getPublishedAt()));
+            authorNameTv.setText(repo.getAuthor());
+            headLineDescriptionTextView.setText(repo.getDescription());
+            contentTextView.setText(String.valueOf(repo.getContent()));
+            headLineTitleTextView.setText(repo.getTitle());
+            headLinePublishedAtTextView.setText(repo.getPublishedAt());
+            Picasso.get().load(repo.getUrlToImage()).into(headLineImageView);
         }
     }
 }

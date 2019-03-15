@@ -67,8 +67,8 @@ public class ListFragment extends BaseFragment implements ArticleSelectedListene
             if (isError != null) if(isError) {
                 errorTextView.setVisibility(View.VISIBLE);
                 listView.setVisibility(View.GONE);
-                errorTextView.setText("An Error Occurred While Loading Data!");
-            }else {
+                errorTextView.setText(getString(R.string.error_occured));
+            } else {
                 errorTextView.setVisibility(View.GONE);
                 errorTextView.setText(null);
             }

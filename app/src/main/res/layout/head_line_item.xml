@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:cardElevation="1dp"
+    app:cardUseCompatPadding="true"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView android:id="@+id/headline_iv"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:layout_height="250dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView android:id="@+id/headline_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                tools:text="kshfdjhfj jsdjshdjsdksdksd"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+
+            <TextView android:id="@+id/headline_description_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                tools:text="kshfdjhfj jsdjshdjsdksdksd"
+                android:textSize="14sp"/>
+
+            <TextView android:id="@+id/headline_content_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                tools:text="kshfdjhfj jsdjshdjsdksdksd"
+                android:textSize="14sp"/>
+
+            <TextView android:id="@+id/headline_published_at_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                tools:text="kshfdjhfj jsdjshdjsdksdksd"
+                android:textSize="12sp"/>
+
+            <TextView android:id="@+id/headline_author_by_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                tools:text="kshfdjhfj jsdjshdjsdksdksd"
+                android:textSize="12sp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
