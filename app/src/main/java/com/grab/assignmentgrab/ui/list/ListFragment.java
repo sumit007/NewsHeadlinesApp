@@ -54,6 +54,7 @@ public class ListFragment extends BaseFragment implements ArticleSelectedListene
     public void onArticleSelected(TopHeadLines.Article repo) {
         DetailsViewModel detailsViewModel = ViewModelProviders.of(getBaseActivity(), viewModelFactory).get(DetailsViewModel.class);
         detailsViewModel.setSelectedArticle(repo);
+        detailsViewModel.setIsLoading(true);
         getBaseActivity().getSupportFragmentManager().beginTransaction().replace(R.id.screenContainer, new DetailsFragment())
                 .addToBackStack(null).commit();
     }
