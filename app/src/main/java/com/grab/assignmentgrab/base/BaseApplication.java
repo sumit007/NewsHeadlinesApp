@@ -1,6 +1,5 @@
 package com.grab.assignmentgrab.base;
 
-import android.app.Application;
 
 import com.grab.assignmentgrab.di.component.ApplicationComponent;
 import com.grab.assignmentgrab.di.component.DaggerApplicationComponent;
@@ -13,7 +12,7 @@ import dagger.android.support.DaggerApplication;
  */
 
 
-public class BaseApplication extends Application {
+public class BaseApplication extends DaggerApplication {
 
     @Override
     public void onCreate() {

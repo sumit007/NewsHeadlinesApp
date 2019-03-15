@@ -3,16 +3,16 @@ package com.grab.assignmentgrab.base;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
+import dagger.android.support.DaggerAppCompatActivity;
 
 /**
  * Created by Sumit on 14/03/19.
  */
 
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends DaggerAppCompatActivity {
 
     @LayoutRes
     protected abstract int layoutRes();

@@ -2,8 +2,6 @@ package com.grab.assignmentgrab.data.api;
 
 import com.grab.assignmentgrab.data.model.TopHeadLines;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import io.reactivex.Single;
