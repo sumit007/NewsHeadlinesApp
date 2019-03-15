@@ -4,7 +4,6 @@ import com.grab.assignmentgrab.data.model.TopHeadLines;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 
 /**
  * Created by Sumit on 15/03/19.

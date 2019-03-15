@@ -1,5 +1,9 @@
 package com.grab.assignmentgrab.data.model;
 
+import android.arch.persistence.room.Embedded;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -45,10 +49,13 @@ public class TopHeadLines {
         this.articles = articles;
     }
 
+    @Entity(tableName = "news_article")
     public static class Article {
-
+        @PrimaryKey(autoGenerate = true)
+        public int uId;
         @SerializedName("source")
         @Expose
+        @Embedded
         private Source source;
         @SerializedName("author")
         @Expose
