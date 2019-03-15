@@ -14,10 +14,10 @@ public class DetailsViewModel extends ViewModel {
 
     private CompositeDisposable disposable;
 
-    private final MutableLiveData<TopHeadLines.Article> selectedRepo = new MutableLiveData<>();
+    private final MutableLiveData<TopHeadLines.Article> selectedArticle = new MutableLiveData<>();
 
-    public LiveData<TopHeadLines.Article> getSelectedRepo() {
-        return selectedRepo;
+    public LiveData<TopHeadLines.Article> getSelectedArticle() {
+        return selectedArticle;
     }
 
     @Inject
@@ -26,7 +26,7 @@ public class DetailsViewModel extends ViewModel {
     }
 
     public void setSelectedArticle(TopHeadLines.Article article) {
-        selectedRepo.setValue(article);
+        selectedArticle.setValue(article);
     }
 
     @Override

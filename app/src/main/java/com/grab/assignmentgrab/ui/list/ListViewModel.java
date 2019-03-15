@@ -18,44 +18,44 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ListViewModel extends ViewModel {
 
-    private final NetworkRepository repoRepository;
+    private final NetworkRepository networkRepository;
     private CompositeDisposable disposable;
 
     private final MutableLiveData<List<TopHeadLines.Article>> repos = new MutableLiveData<>();
-    private final MutableLiveData<Boolean> repoLoadError = new MutableLiveData<>();
+    private final MutableLiveData<Boolean> headlineLoadError = new MutableLiveData<>();
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>();
 
     @Inject
     public ListViewModel(NetworkRepository repoRepository) {
-        this.repoRepository = repoRepository;
+        this.networkRepository = repoRepository;
         disposable = new CompositeDisposable();
-        fetchRepos();
+        fetchHeadLines();
     }
 
     LiveData<List<TopHeadLines.Article>> getArticles() {
         return repos;
     }
     LiveData<Boolean> getError() {
-        return repoLoadError;
+        return headlineLoadError;
     }
     LiveData<Boolean> getLoading() {
         return loading;
     }
 
-    private void fetchRepos() {
+    private void fetchHeadLines() {
         loading.setValue(true);
-        disposable.add(repoRepository.getTopHeadLines().subscribeOn(Schedulers.io())
+        disposable.add(networkRepository.getTopHeadLines().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<TopHeadLines>() {
                     @Override
                     public void onSuccess(TopHeadLines value) {
-                        repoLoadError.setValue(false);
+                        headlineLoadError.setValue(false);
                         repos.setValue(value.getArticles());
                         loading.setValue(false);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        repoLoadError.setValue(true);
+                        headlineLoadError.setValue(true);
                         loading.setValue(false);
                     }
                 }));

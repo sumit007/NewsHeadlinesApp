@@ -43,7 +43,7 @@ public class DetailsFragment extends BaseFragment {
     }
 
     private void displayRepo() {
-        detailsViewModel.getSelectedRepo().observe(this, repo -> {
+        detailsViewModel.getSelectedArticle().observe(this, repo -> {
             if (repo != null) {
                 mWebView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.GhostWhite));
                 mWebView.loadUrl(repo.getUrl());

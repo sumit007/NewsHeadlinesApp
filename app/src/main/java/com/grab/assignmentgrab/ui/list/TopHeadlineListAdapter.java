@@ -26,10 +26,10 @@ public class TopHeadlineListAdapter extends RecyclerView.Adapter<TopHeadlineList
 
     TopHeadlineListAdapter(ListViewModel viewModel, LifecycleOwner lifecycleOwner, ArticleSelectedListener articleSelectedListener) {
         this.articleSelectedListener = articleSelectedListener;
-        viewModel.getArticles().observe(lifecycleOwner, repos -> {
+        viewModel.getArticles().observe(lifecycleOwner, articles -> {
             data.clear();
-            if (repos != null) {
-                data.addAll(repos);
+            if (articles != null) {
+                data.addAll(articles);
                 notifyDataSetChanged();
             }
         });
@@ -68,26 +68,26 @@ public class TopHeadlineListAdapter extends RecyclerView.Adapter<TopHeadlineList
         @BindView(R.id.headline_iv)
         ImageView headLineImageView;
 
-        private TopHeadLines.Article repo;
+        private TopHeadLines.Article article;
 
         HeadLineViewHolder(View itemView, ArticleSelectedListener articleSelectedListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(v -> {
-                if(repo != null) {
-                    articleSelectedListener.onArticleSelected(repo);
+                if(article != null) {
+                    articleSelectedListener.onArticleSelected(article);
                 }
             });
         }
 
-        void bind(TopHeadLines.Article repo) {
-            this.repo = repo;
-            authorNameTv.setText(repo.getAuthor());
-            headLineDescriptionTextView.setText(repo.getDescription());
-            contentTextView.setText(String.valueOf(repo.getContent()));
-            headLineTitleTextView.setText(repo.getTitle());
-            headLinePublishedAtTextView.setText(repo.getPublishedAt());
-            Picasso.get().load(repo.getUrlToImage()).into(headLineImageView);
+        void bind(TopHeadLines.Article article) {
+            this.article = article;
+            authorNameTv.setText(article.getAuthor());
+            headLineDescriptionTextView.setText(article.getDescription());
+            contentTextView.setText(String.valueOf(article.getContent()));
+            headLineTitleTextView.setText(article.getTitle());
+            headLinePublishedAtTextView.setText(article.getPublishedAt());
+            Picasso.get().load(article.getUrlToImage()).into(headLineImageView);
         }
     }
 }
